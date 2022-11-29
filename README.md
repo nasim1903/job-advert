@@ -1,6 +1,6 @@
 # Job Posting System
 
-This is a development build of a job posting system that mkes use of:
+## This is a development build of a job posting system that makes use of:
 
 - ASP.NET
 - CRUD operations
