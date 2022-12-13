@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using job_advert.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace job_advert.Controllers
@@ -10,14 +11,25 @@ namespace job_advert.Controllers
     [Route("[controller]")]
     public class JobController : ControllerBase
     {
+        private readonly iJobService _jobService;
 
-        private static List<Job> jobs = new List<Job>(){
-            new Job{JobTitle = ".NET Developer", Description = "This is placeholder text"}
-        };
+        public JobController(iJobService jobService)
+        {
+            _jobService = jobService;
+        }
 
         [HttpGet]
-        public ActionResult<List<Job>> get(){
-            return Ok(jobs);
+        public async Task<ActionResult<List<Job>>> get(){
+            return Ok(await _jobService.GetAll());
+        }
+
+        [HttpGet("{location}")]
+        public async Task<ActionResult<List<Job>>> getPlace(string location){
+            return Ok(await _jobService.GetLocation(location));
+        }
+        [HttpGet("title/{title}")]
+        public async Task<ActionResult<List<Job>>> getName(string title){
+            return Ok(await _jobService.GetName(title));
         }
     }
 }

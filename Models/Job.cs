@@ -11,6 +11,7 @@ namespace job_advert.Models
         public string JobTitle { get; set; } = ".NET developer";
         public string Description { get; set; } = "This is placeholder text";
         public int Salary { get; set; } = 30000;
+        public string Location { get; set; } = "Bradford";
 
     }
 }
