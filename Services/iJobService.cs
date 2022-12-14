@@ -11,6 +11,8 @@ namespace job_advert.Services
         Task<List<Job>> GetAll ();
         Task<List<Job>> GetName (string title);
         Task<List<Job>> GetLocation (string location);
-        Task<List<Job>> PostJob (string title, string location);
+        Task<List<Job>> PostJob (Job job);
+
+
     }
 }

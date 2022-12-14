@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using job_advert.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Builder;
+using System.Web;
 
 namespace job_advert.Controllers
 {
@@ -35,9 +37,9 @@ namespace job_advert.Controllers
             return Ok(await _jobService.GetName(title));
         }
         [HttpPost("post")]
-        public async Task<ActionResult<List<Job>>> createJob(string title, string location)
+        public async Task<ActionResult<List<Job>>> createJob(Job job)
         {
-            return Ok(await _jobService.PostJob(title, location));
+            return Ok(await _jobService.PostJob(job));
         }
     }
 }
