@@ -32,5 +32,12 @@ namespace job_advert.Services
         {
             return jobs.Where(c => c.JobTitle.ToLower() == title.ToLower()).ToList();
         }
+
+        public async Task<List<Job>> PostJob(string title, string location)
+        {
+            var newJob = new Job{JobTitle = title, Location = location};
+            jobs.Add(newJob);
+            return jobs;
+        }
     }
 }

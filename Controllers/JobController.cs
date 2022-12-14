@@ -34,5 +34,10 @@ namespace job_advert.Controllers
         {
             return Ok(await _jobService.GetName(title));
         }
+        [HttpPost("post")]
+        public async Task<ActionResult<List<Job>>> createJob(string title, string location)
+        {
+            return Ok(await _jobService.PostJob(title, location));
+        }
     }
 }
