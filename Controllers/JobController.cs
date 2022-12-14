@@ -19,16 +19,19 @@ namespace job_advert.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Job>>> get(){
+        public async Task<ActionResult<List<Job>>> get()
+        {
             return Ok(await _jobService.GetAll());
         }
 
-        [HttpGet("{location}")]
-        public async Task<ActionResult<List<Job>>> getPlace(string location){
+        [HttpGet("location/{location}")]
+        public async Task<ActionResult<List<Job>>> getPlace(string location)
+        {
             return Ok(await _jobService.GetLocation(location));
         }
         [HttpGet("title/{title}")]
-        public async Task<ActionResult<List<Job>>> getName(string title){
+        public async Task<ActionResult<List<Job>>> getName(string title)
+        {
             return Ok(await _jobService.GetName(title));
         }
     }
